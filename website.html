@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f172a, #312e81, #7c3aed);
+      overflow: hidden;
+      color: white;
+    }
+
+    /* Animated background circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.5;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .circle1 {
+      width: 250px;
+      height: 250px;
+      background: #38bdf8;
+      top: -80px;
+      left: -80px;
+    }
+
+    .circle2 {
+      width: 300px;
+      height: 300px;
+      background: #f472b6;
+      bottom: -100px;
+      right: -80px;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-25px);
+      }
+    }
+
+    /* Main Card */
+    .card {
+      position: relative;
+      width: 90%;
+      max-width: 650px;
+      padding: 50px 35px;
+      text-align: center;
+      border-radius: 25px;
+
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+
+      animation: appear 1s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .profile-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+      font-size: 45px;
+
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ffffff, #a5f3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .info {
+      display: grid;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .info-box {
+      padding: 18px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: 0.3s;
+    }
+
+    .info-box:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .label {
+      display: block;
+      font-size: 13px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .value {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 13px 30px;
+      border: none;
+      border-radius: 30px;
+
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+
+      background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.07);
+      box-shadow: 0 12px 30px rgba(139, 92, 246, 0.6);
+    }
+
+    #message {
+      margin-top: 15px;
+      color: #a5f3fc;
+      font-size: 15px;
+      min-height: 22px;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .card {
+        padding: 35px 20px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .value {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+
+  <div class="card">
+
+    <div class="profile-icon">🎓</div>
+
+    <h1 id="name">Sarthak Shimpi</h1>
+
+    <p class="subtitle">
+      Welcome to my student profile
+    </p>
+
+    <div class="info">
+
+      <div class="info-box">
+        <span class="label">Department</span>
+        <span class="value" id="department">
+          Computer Engineering
+        </span>
+      </div>
+
+      <div class="info-box">
+        <span class="label">College</span>
+        <span class="value" id="college">
+          R.C Patel College of Engineering and Polytechnic
+        </span>
+      </div>
+
+    </div>
+
+    <button onclick="showMessage()">
+      ✨ Click Me
+    </button>
+
+    <p id="message"></p>
+
+  </div>
+
+  <script>
+    function showMessage() {
+      const message = document.getElementById("message");
+
+      message.textContent =
+        "🚀 Thanks for visiting my profile!";
+
+      // Hide the message after 3 seconds
+      setTimeout(() => {
+        message.textContent = "";
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
